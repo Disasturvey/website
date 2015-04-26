@@ -1,0 +1,67 @@
+{
+  "css": {
+    "less": {
+      "src": [
+        "resources/assets/stylesheets/app.less"
+      ],
+      "vendorSrc": [
+        "resources/assets/stylesheets/vendor.less"
+      ]
+    },
+    "autoprefixerConfig": {
+      "browsers": ["> 5% in GB"],
+      "cascade": true
+    },
+    "dest": "public/builds"
+  },
+  "fonts": {
+    "src": [
+      "bower_components/bootstrap/fonts/**/*",
+      "bower_components/font-awesome/fonts/**/*"
+    ],
+    "dest": "public/fonts"
+  },
+  "angular": {
+    "templates": {
+      "src": [
+        "resources/assets/templates/**/*.html"
+      ],
+      "dest": "public/builds",
+      "params": {
+        "module": "app",
+        "root": "templates"
+      }
+    }
+  },
+  "js": {
+    "es6": {
+      "src": [
+        "resources/assets/scripts/**/*.js"
+      ],
+      "dest": "public/builds",
+      "concat": "app.js"
+    },
+    "es5": {
+      "vendorSrc": [
+        "bower_components/angular/angular.js",
+        "bower_components/angular-smart-table/dist/smart-table.js",
+        "bower_components/angular-i18n/angular-locale_en-gb.js",
+        "bower_components/ui-router/release/angular-ui-router.js",
+        "bower_components/angular-sanitize/angular-sanitize.js",
+        "bower_components/angular-animate/angular-animate.js",
+        "bower_components/angular-native-picker/build/angular-datepicker.js",
+        "bower_components/angular-strap/dist/angular-strap.js",
+        "bower_components/angular-strap/dist/angular-strap.tpl.js",
+        "bower_components/ladda/js/spin.js",
+        "bower_components/ladda/js/ladda.js",
+        "bower_components/angular-ladda/src/angular-ladda.js",
+        "bower_components/angular-ui-codemirror/ui-codemirror.js",
+        "bower_components/angular-scroll/angular-scroll.js",
+        "bower_components/braintree-angular/dist/braintree-angular.js",
+        "bower_components/angular-ui-utils/mask.js"
+      ],
+      "dest": "public/builds",
+      "concat": "vendor.js"
+    }
+  }
+}

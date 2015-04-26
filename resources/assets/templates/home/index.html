@@ -1,0 +1,111 @@
+<section class="container-fluid" id="landing">
+    <div class="v-center">
+        <h1 class="text-center">Disasturvey</h1>
+
+        <h2 class="text-center lato animate slideInDown">The <strong>Disaster Relief</strong> Survey Device.</h2>
+        <h2 class="text-center lato animate slideInDown">Worry about <strong>actions</strong>, not <strong>questions</strong>.</h2>
+
+        <p class="text-center">
+            <br>
+            <a href="#donate" du-smooth-scroll class="btn btn-danger btn-lg btn-huge lato">Donate towards a Device</a>
+        </p>
+    </div>
+    <a href="#about" du-smooth-scroll>
+        <div class="scroll-down bounceInDown animated">
+            <span>
+                <i class="fa fa-angle-down fa-2x"></i>
+            </span>
+        </div>
+    </a>
+</section>
+<section class="container-fluid" id="about">
+    <div class="container v-center">
+        <h4 class="text-center">
+            Disasturvey is a small device that enables NGOs and volunteers to cheaply and quickly gather information from the local population to make good decisions and help where help is needed most.
+        </h4>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>How does it work?</h3>
+                <p>
+                    The NGO staff records the questions to gather the data they will need to make decisions, such as how many people live in a household, if they have enough food, if somebody is injured and how serious. Allowing them to record a custom message and questions not only allows them to record in any language but also makes the device usable by many more people, in particular illiterate, people. <br>
+                    The NGO staff then puts the data on the devices and distributes them in a village, camp or general disaster region. <br>
+                    People listen to the questions, press the appropriate buttons and hand the device over to their neighbors. <br>
+                    The data is sent real-time to the staff’s computer which presents them with an analysis and visualises the data on a map to make decisions about their action plan.
+                </p>
+            </div>
+            <div class="col-sm-6">
+                <h3>How can I help?</h3>
+                <p>
+                    It's easy, £40 will allow us to produce one device, give us a message, this could be your name or a more personalised message, and we'll engrave it on the manufactured device and give it to an NGO in a disaster zone.
+                </p>
+            </div>
+        </div>
+
+        <h3>Sponsor a device with your own phrase engraved on it to help NGO’s get the data they need to make good decisions!</h3>
+    </div>
+    <a href="#donate" du-smooth-scroll>
+        <div class="scroll-down">
+            <span>
+                <i class="fa fa-angle-down fa-2x"></i>
+            </span>
+        </div>
+    </a>
+    <!--/container-->
+</section>
+<section class="container-fluid" id="donate">
+    <div class="container v-center">
+
+        <form ng-submit="vm.processPayment">
+            <h2 class="text-center lato">This sounds great, I'd love to donate!</h2>
+            <p class="text-center">Great, just use the form below!</p>
+
+            <div class="braintree-container text-center" ng-if="!vm.done">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <span class="input input--akira"
+                              ng-class="{'input--filled': vm.creditCard.number.length > 0}">
+                            <input class="input__field input__field--akira" ng-model="vm.creditCard.number" ui-mask="{{vm.selectedMask}}" id="card-number" ng-readonly="vm.loading.payment">
+                            <label class="input__label input__label--akira" for="card-number">
+                                <span class="input__label-content input__label-content--akira">Card Number (E.G 4111 1111 1111 1111)</span>
+                            </label>
+                        </span>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="input input--akira"
+                              ng-class="{'input--filled': vm.creditCard.expiry.length > 0}">
+                            <input class="input__field input__field--akira" ng-model="vm.creditCard.expiry" ui-mask="{{'99 / 99'}}" id="card-expiry" ng-readonly="vm.loading.payment">
+                            <label class="input__label input__label--akira" for="card-expiry">
+                                <span class="input__label-content input__label-content--akira">Expiry Date - MM/DD (E.G 01/17)</span>
+                            </label>
+                        </span>
+                    </div>
+                </div>
+
+
+                <span class="input input--akira"
+                      ng-class="{'input--filled': vm.creditCard.message.length > 0}">
+                    <input class="input__field input__field--akira" ng-model="vm.creditCard.message" id="message" ng-readonly="vm.loading.payment">
+                    <label class="input__label input__label--akira" for="message">
+                        <span class="input__label-content input__label-content--akira">Engraved Message</span>
+                    </label>
+                </span>
+
+                <button class="btn btn-lg btn-primary"
+                        ng-click="vm.processPayment()"
+                        ladda="vm.loading.payment"
+                        data-style="expand-right">
+                    Donate &pound;{{ vm.amount }}
+                </button>
+            </div>
+
+            <div class="braintree-container payment-success" ng-if="vm.done">
+                <h1 class="text-center lato animated slideInRight" style="color: black;">Thanks, your payment was successful!</h1>
+            </div>
+
+        </form>
+
+        <br>
+    </div>
+    <!--/container-->
+</section>
